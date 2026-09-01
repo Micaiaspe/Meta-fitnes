@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Fitness - Crear Rutinas</title>
+    <link rel="stylesheet" href="crear-rutinas.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">META <span>FITNESS</span></div>
+        
+        <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="home.html">INICIO</a></li>
+                <li><a href="crear-rutinas.html" class="active">CREAR RUTINAS</a></li>
+                <li><a href="calorias.html">CALORÍAS</a></li>
+                <li><a href="#" id="logout-btn">CERRAR SESIÓN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>DISEÑA TU RUTINA</h2>
+
+        <form id="rutina-form">
+            <div class="form-group">
+                <label for="nombre-rutina">NOMBRE DE LA RUTINA</label>
+                <input type="text" id="nombre-rutina" placeholder="Ej: Pecho y Tríceps - Día 1" required>
+            </div>
+
+            <div class="ejercicios-section">
+                <h3>EJERCICIOS</h3>
+                <div id="lista-ejercicios">
+                    <!-- Los ejercicios agregados aparecerán aquí dinámicamente -->
+                </div>
+                <button type="button" id="agregar-ejercicio-btn" class="btn-secundario">+ AGREGAR EJERCICIO</button>
+            </div>
+
+            <button type="submit" class="btn-principal">GUARDAR RUTINA</button>
+        </form>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

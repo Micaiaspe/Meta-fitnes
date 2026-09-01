@@ -1,0 +1,240 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,400;0,700;1,700&display=swap');
+
+:root {
+    --green: #A3FF00; /* Verde neón extraído de la imagen */
+    --dark-bg: #0a0a0a;
+    --gray-bg: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--dark-bg);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .title-green, .title-white, .btn-black, .btn-green, .logo, .side-text {
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+}
+
+.text-green { color: var(--green); }
+.italic { font-style: italic; }
+.link-white { color: #fff; text-decoration: none; transition: 0.3s; }
+.link-white:hover { color: var(--green); }
+
+/* ==================== LANDING PAGE (index.html) ==================== */
+.landing-body {
+    background-image: url('bg-gym.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.landing-overlay {
+    background: rgba(0, 0, 0, 0.75);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.side-text {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    line-height: 1.1;
+    color: #888;
+    letter-spacing: 2px;
+}
+.side-text p { margin: 0; }
+
+.center-content {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.main-logo {
+    font-size: 6rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(163, 255, 0, 0.2);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+    color: var(--green);
+}
+.divider .line {
+    width: 100px;
+    height: 2px;
+    background-color: rgba(163, 255, 0, 0.3);
+}
+
+.sub-logo {
+    font-size: 1.2rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* ==================== NAVBAR Y MENÚ HAMBURGUESA ==================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: var(--gray-bg);
+    border-bottom: 2px solid var(--green);
+    position: relative;
+    z-index: 100;
+}
+.navbar .logo { font-size: 24px; }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: var(--green); }
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: var(--green);
+    cursor: pointer;
+}
+
+/* Mobile Navbar */
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--gray-bg);
+        border-bottom: 2px solid var(--green);
+    }
+    
+    .nav-links.active { display: flex; }
+    .nav-links li { text-align: center; padding: 15px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+    .side-text { display: none; /* Ocultar texto lateral en móviles */ }
+    .main-logo { font-size: 4rem; }
+}
+
+/* ==================== BOTONES ==================== */
+.btn-green {
+    background-color: var(--green);
+    color: #000;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    font-family: 'Anton', sans-serif;
+    text-decoration: none;
+    border: 2px solid var(--green);
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+.btn-green:hover { background-color: #8ce600; box-shadow: 0 0 15px rgba(163, 255, 0, 0.4); }
+
+.btn-outline-green {
+    background-color: transparent;
+    color: var(--green);
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    font-family: 'Anton', sans-serif;
+    text-decoration: none;
+    border: 2px solid var(--green);
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+.btn-outline-green:hover { background-color: rgba(163, 255, 0, 0.1); }
+
+.btn-black {
+    background-color: #000;
+    color: var(--green);
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: 2px solid var(--green);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-black:hover { background-color: var(--green); color: #000; }
+
+.full-width { width: 100%; margin-top: 20px; }
+.btn-large { padding: 15px 50px; font-size: 1.5rem; margin-top: 20px;}
+
+/* ==================== FORMULARIOS (LOGIN/REGISTRO) ==================== */
+.bg-dark { display: flex; flex-direction: column; min-height: 100vh; }
+.form-container { width: 100%; max-width: 450px; margin: auto; padding: 20px; }
+.form-title { font-size: 3rem; margin-bottom: 25px; text-align: center; }
+.box-form { border: 1px solid rgba(163, 255, 0, 0.3); padding: 40px; border-radius: 8px; background-color: var(--gray-bg); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; color: #ccc; font-size: 0.9rem; }
+.input-group input { width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid #444; color: #fff; border-radius: 4px; outline: none; transition: 0.3s; }
+.input-group input:focus { border-color: var(--green); }
+
+/* ==================== PANEL (home.html) ==================== */
+.info-section { display: flex; flex-wrap: wrap; padding: 60px 40px; background-color: var(--dark-bg); gap: 40px;}
+.info-content { flex: 1; min-width: 300px; }
+.title-green { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; color: var(--green); }
+.subtitle { font-size: 1.2rem; color: #ccc; }
+.info-features { flex: 1; display: flex; flex-direction: column; gap: 30px; min-width: 300px;}
+.feature-title { color: var(--green); font-size: 1.5rem; margin-bottom: 8px; }
+
+.action-section { background-color: var(--green); padding: 70px 20px; text-align: center; }
+.action-section h2 { font-size: 3rem; margin-bottom: 40px; }
+.action-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+/* ==================== CREAR RUTINA ==================== */
+.split-layout { display: flex; flex-wrap: wrap; flex: 1; }
+.split-left { flex: 1; padding: 50px; display: flex; flex-direction: column; align-items: center; border-right: 1px solid #333; min-width: 300px;}
+.split-right { flex: 1; padding: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: url('bg-gym.jpg') center/cover; position: relative; min-width: 300px;}
+.split-right::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.8); z-index: 0; }
+.split-right > * { z-index: 1; }
+
+.title-white { font-size: 3.5rem; margin-bottom: 40px; }
+.exercise-list, .sections-menu { border: 2px solid var(--green); width: 100%; max-width: 350px; background: var(--gray-bg); border-radius: 8px; overflow: hidden; }
+.exercise-item, .menu-item, .menu-header { padding: 15px 20px; border-bottom: 1px solid #333; }
+.exercise-item:last-child, .menu-item:last-child { border-bottom: none; }
+.menu-header { font-size: 1.2rem; background: rgba(0,0,0,0.5); }
+.sections-menu { margin-bottom: 40px; border-color: #555; }
+.menu-item { color: #ccc; cursor: pointer; transition: 0.3s; }
+.menu-item:hover { background-color: rgba(163, 255, 0, 0.1); color: #fff; padding-left: 25px; }
