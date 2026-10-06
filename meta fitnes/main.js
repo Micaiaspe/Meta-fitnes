@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // ==========================================
-    // 1. LÓGICA DEL MENÚ HAMBURGUESA
-    // ==========================================
+
     const hamburgerBtn = document.getElementById("hamburger-btn");
     const navMenu = document.getElementById("nav-menu");
 
@@ -12,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
             navMenu.classList.toggle("active");
         });
 
-        // Cerrar menú al hacer clic en un enlace
         document.querySelectorAll("nav ul li a").forEach(link => {
             link.addEventListener("click", () => {
                 hamburgerBtn.classList.remove("active");
@@ -21,9 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================
-    // 2. LÓGICA DE CERRAR SESIÓN
-    // ==========================================
     const logoutBtn = document.getElementById("logout-btn");
     if (logoutBtn) {
         logoutBtn.addEventListener("click", (e) => {
@@ -35,14 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================
-    // 3. LÓGICA DE CREAR RUTINAS (crear-rutinas.html)
-    // ==========================================
     const rutinaForm = document.getElementById("rutina-form");
     const listaEjercicios = document.getElementById("lista-ejercicios");
     const agregarEjercicioBtn = document.getElementById("agregar-ejercicio-btn");
 
-    // Agregar un nuevo campo de ejercicio dinámicamente
     if (agregarEjercicioBtn && listaEjercicios) {
         agregarEjercicioBtn.addEventListener("click", () => {
             const div = document.createElement("div");
@@ -54,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 <button type="button" class="btn-eliminar">&times;</button>
             `;
             
-            // Eliminar fila de ejercicio
             div.querySelector(".btn-eliminar").addEventListener("click", () => {
                 div.remove();
             });
@@ -63,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Guardar Rutina en LocalStorage
     if (rutinaForm) {
         rutinaForm.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -86,20 +73,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 ejercicios: ejercicios
             };
 
-            // Recuperar rutinas guardadas o inicializar arreglo
             const rutinasGuardadas = JSON.parse(localStorage.getItem("rutinas")) || [];
             rutinasGuardadas.push(nuevaRutina);
             localStorage.setItem("rutinas", JSON.stringify(rutinasGuardadas));
 
             alert("¡Rutina guardada con éxito!");
             rutinaForm.reset();
-            listaEjercicios.innerHTML = ""; // Limpia los ejercicios dinámicos
+            listaEjercicios.innerHTML = "";
         });
     }
 
-    // ==========================================
-    // 4. LÓGICA CALCULADORA DE CALORÍAS (calorias.html)
-    // ==========================================
     const caloriasForm = document.getElementById("calorias-form");
     const resultadoContenedor = document.getElementById("resultado-calorias");
 
@@ -113,11 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const altura = parseFloat(document.getElementById("altura").value);
             const actividad = parseFloat(document.getElementById("actividad").value);
 
-            // Fórmula de Mifflin-St Jeor para Tasa Metabólica Basal (TMB)
             let tmb = (10 * peso) + (6.25 * altura) - (5 * edad);
             tmb += (genero === "hombre") ? 5 : -161;
 
-            // Calorías de mantenimiento (TDEE)
             const mantenimiento = Math.round(tmb * actividad);
             const perdidaGrasa = Math.round(mantenimiento - 500);
             const gananciaMusculo = Math.round(mantenimiento + 300);
@@ -125,11 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (resultadoContenedor) {
                 resultadoContenedor.innerHTML = `
                     <h3>TUS RESULTADOS:</h3>
-                    <p>🔥 <strong>Mantenimiento:</strong> ${mantenimiento} kcal/día</p>
-                    <p>📉 <strong>Perder Grasa:</strong> ${perdidaGrasa} kcal/día</p>
-                    <p>💪 <strong>Ganar Músculo:</strong> ${gananciaMusculo} kcal/día</p>
+                    <p><strong>Mantenimiento:</strong> ${mantenimiento} kcal/día</p>
+                    <p><strong>Perder Grasa:</strong> ${perdidaGrasa} kcal/día</p>
+                    <p><strong>Ganar Músculo:</strong> ${gananciaMusculo} kcal/día</p>
                 `;
             }
         });
     }
+    
 });

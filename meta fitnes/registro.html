@@ -9,29 +9,35 @@
 <body class="bg-dark">
     <div class="form-container">
         <h1 class="form-title text-green">Registrarse</h1>
-        <form id="registerForm" class="box-form">
+        
+        <form action="procesar_registro.php" method="POST" class="box-form">
             <div class="input-group">
                 <label>Nombre:</label>
-                <input type="text" required>
+                <input type="text" name="nombre" required>
             </div>
             <div class="input-group">
                 <label>Apellido:</label>
-                <input type="text" required>
+                <input type="text" name="apellido" required>
             </div>
             <div class="input-group">
                 <label>Fecha de Nacimiento:</label>
-                <input type="date" required>
+                <input type="date" name="fechanac" required>
             </div>
             <div class="input-group">
                 <label>Número de Teléfono:</label>
-                <input type="tel" required>
+                <input type="tel" name="telefono" required>
             </div>
             <div class="input-group">
-                <label>Correo:</label>
-                <input type="email" required>
+                <label>Nombre de Usuario (Login):</label>
+                <input type="text" name="username" required>
+            </div>
+            <div class="input-group">
+                <label>Contraseña:</label>
+                <input type="password" name="password" required>
             </div>
             <button type="submit" class="btn-green full-width">Registrar</button>
         </form>
+        
         <p style="text-align:center; margin-top:20px;"><a href="index.html" class="link-white">Volver al inicio</a></p>
     </div>
     <script src="app.js"></script>

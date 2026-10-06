@@ -9,17 +9,17 @@
 <body class="bg-dark">
     <div class="form-container">
         <h1 class="form-title text-green">INICIAR SESIÓN</h1>
-        <form id="loginForm" class="box-form">
-            <div class="input-group">
-                <label>Nombre de Usuario:</label>
-                <input type="text" id="username" required>
-            </div>
-            <div class="input-group">
-                <label>Contraseña:</label>
-                <input type="password" id="password" required>
-            </div>
-            <button type="submit" class="btn-green full-width">Ingresar</button>
-        </form>
+            <form action="procesar_login.php" method="POST" class="box-form">
+    <div class="input-group">
+        <label>Nombre de Usuario:</label>
+        <input type="text" name="username" id="username" required>
+    </div>
+    <div class="input-group">
+        <label>Contraseña:</label>
+        <input type="password" name="password" id="password" required>
+    </div>
+    <button type="submit" class="btn-green full-width">Ingresar</button>
+            </form>
         <p style="text-align:center; margin-top:20px;"><a href="index.html" class="link-white">Volver al inicio</a></p>
     </div>
     <script src="app.js"></script>
