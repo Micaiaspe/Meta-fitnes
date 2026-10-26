@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #8CC63F;
+    --bg-dark: #121212;
+    --bg-header: #1a1a1a;
+    --bg-card: #1e1e1e;
+    --text-white: #ffffff;
+    --text-gray: #b3b3b3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--bg-header);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.logo span { color: var(--primary-color); }
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover, nav ul li a.active { color: var(--primary-color); }
+
+/* Contenedor Principal */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* Pestañas (Tabs) */
+.tabs-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+    border-bottom: 2px solid #2a2a2a;
+    padding-bottom: 10px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    padding: 8px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--text-white);
+}
+
+.tab-btn.active {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Grid de Tarjetas */
+.rutinas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.rutina-card {
+    background-color: var(--bg-card);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.rutina-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.badge-autor {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.rutina-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #333;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.rutina-header h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--text-white);
+    line-height: 1.1;
+}
+
+.badge-calorias {
+    background-color: rgba(140, 198, 63, 0.15);
+    color: var(--primary-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.rutina-body p {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.lista-ejercicios {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.lista-ejercicios li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dashed #2a2a2a;
+    font-size: 14px;
+}
+
+.lista-ejercicios li span:last-child {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Botones de Acción */
+.rutina-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-principal-card {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #000;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-secundario {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--text-gray);
+    color: var(--text-white);
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-danger {
+    flex: 1;
+    background: transparent;
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background: #ff4d4d;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tabs-container {
+        flex-direction: column;
+    }
+    .tab-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

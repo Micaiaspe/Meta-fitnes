@@ -21,6 +21,7 @@
             <ul>
                 <li><a href="home.html">INICIO</a></li>
                 <li><a href="crear-rutinas.html" class="active">CREAR RUTINAS</a></li>
+                <li><a href="ver-rutinas.php">VER RUTINAS</a></li>
                 <li><a href="calorias.html">CALORÍAS</a></li>
                 <li><a href="#" id="logout-btn">CERRAR SESIÓN</a></li>
             </ul>
@@ -30,17 +31,29 @@
     <main class="container">
         <h2>DISEÑA TU RUTINA</h2>
 
-        <form id="rutina-form">
+        <form action="procesar_crear_rutina.php" method="POST" id="rutina-form">
             <div class="form-group">
-                <label for="nombre-rutina">NOMBRE DE LA RUTINA</label>
-                <input type="text" id="nombre-rutina" placeholder="Ej: Pecho y Tríceps - Día 1" required>
+                <label for="nombre-rutina">NOMBRE / SECCIÓN DE LA RUTINA</label>
+                <input type="text" name="secciones" id="nombre-rutina" placeholder="Ej: Pecho y Tríceps - Día 1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contcalorias">CALORÍAS ESTIMADAS (kcal)</label>
+                <input type="number" name="contcalorias" id="contcalorias" placeholder="Ej: 450" required>
+            </div>
+
+            <!-- Nuevo selector de visibilidad -->
+            <div class="form-group">
+                <label for="visibilidad">PRIVACIDAD DE LA RUTINA</label>
+                <select name="visibilidad" id="visibilidad" required>
+                    <option value="privada">🔒 Privada (Solo para mí)</option>
+                    <option value="publica">🌐 Pública (Compartir con la comunidad)</option>
+                </select>
             </div>
 
             <div class="ejercicios-section">
                 <h3>EJERCICIOS</h3>
-                <div id="lista-ejercicios">
-                    <!-- Los ejercicios agregados aparecerán aquí dinámicamente -->
-                </div>
+                <div id="lista-ejercicios"></div>
                 <button type="button" id="agregar-ejercicio-btn" class="btn-secundario">+ AGREGAR EJERCICIO</button>
             </div>
 
@@ -48,6 +61,6 @@
         </form>
     </main>
 
-    <script src="main.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
